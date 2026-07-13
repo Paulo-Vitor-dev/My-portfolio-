@@ -61,7 +61,7 @@ Mais do que um site de apresentação, este projeto representa minha forma de de
 
 ## 📸 Prévia
 
-> *(Adicione aqui um GIF ou screenshot do projeto)*
+> 
 
 <img width="1364" height="596" alt="Gravação-de-Tela-2026-07-13-152017" src="https://github.com/user-attachments/assets/9f109d1a-2af9-4747-a105-ac9d25088825" />
 
