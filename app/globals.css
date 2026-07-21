@@ -344,3 +344,19 @@ body,
 .achievement-button-shadow { box-shadow: 0 0 35px color-mix(in srgb, var(--primary) 15%, transparent); }
 .achievement-star-shadow { box-shadow: 0 0 20px color-mix(in srgb, var(--primary) 50%, transparent); }
 .achievement-orb-shadow { box-shadow: 0 0 25px color-mix(in srgb, var(--primary) 65%, transparent), inset 0 0 18px color-mix(in srgb, var(--primary) 22%, transparent); }
+
+/* Smooth-scroll polish */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+}
+
+section[id] {
+  scroll-margin-top: 6rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
