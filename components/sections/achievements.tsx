@@ -31,11 +31,35 @@ const achievements: Achievement[] = [
     position: { left: '47%', top: '36%' },
     size: 26,
   },
+  {
+    id: 'alura-front-end-2',
+    title: 'Imersão Front-End 2ª Edição',
+    issuer: 'Alura',
+    date: '15/02/2025',
+    workload: '5 horas',
+    description:
+      'Imersão prática em desenvolvimento Front-End, fortalecendo fundamentos e práticas para criação de interfaces web modernas.',
+    image: '/certificado-alura-imersao-front-end.png',
+    certificateUrl: '/certificado-alura-imersao-front-end.pdf',
+    position: { left: '17%', top: '24%' },
+    size: 26,
+  },
+  {
+    id: 'alura-arquitetura-web-ia',
+    title: 'Imersão Arquitetura Web com IA',
+    issuer: 'Alura',
+    date: '21/07/2026',
+    workload: '4 horas',
+    description:
+      'Imersão dedicada à arquitetura web com Inteligência Artificial, explorando conceitos e práticas para construção de soluções web modernas apoiadas por IA.',
+    image: '/certificado-alura-arquitetura-web-ia.png',
+    certificateUrl: '/certificado-alura-arquitetura-web-ia.pdf',
+    position: { left: '77%', top: '18%' },
+    size: 26,
+  },
 ]
 
 const futureStars = [
-  { left: '17%', top: '24%', size: 10, delay: 0.2 },
-  { left: '77%', top: '18%', size: 8, delay: 0.8 },
   { left: '84%', top: '62%', size: 11, delay: 1.4 },
   { left: '24%', top: '72%', size: 7, delay: 2 },
   { left: '64%', top: '78%', size: 9, delay: 2.6 },
@@ -106,7 +130,7 @@ function CertificateModal({ achievement, onClose }: { achievement: Achievement; 
             <p className="mt-3 max-w-3xl leading-relaxed text-muted-foreground">{achievement.description}</p>
           </div>
           <a
-            href={achievement.image}
+            href={achievement.certificateUrl ?? achievement.image}
             target="_blank"
             rel="noreferrer"
             className="inline-flex items-center justify-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-5 py-3 text-sm font-medium text-foreground transition hover:-translate-y-0.5 hover:border-primary/70 hover:bg-primary/20"
@@ -231,7 +255,7 @@ export function Achievements() {
           ))}
 
           <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between gap-4 text-xs text-muted-foreground">
-            <span className="font-mono uppercase tracking-[0.16em]">1 conquista mapeada</span>
+            <span className="font-mono uppercase tracking-[0.16em]">3 conquistas mapeadas</span>
             <span className="hidden items-center gap-2 sm:flex"><Sparkles size={13} className="text-accent" /> Novas estrelas serão adicionadas aqui</span>
           </div>
         </div>
