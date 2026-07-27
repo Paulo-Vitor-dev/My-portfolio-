@@ -33,6 +33,42 @@ export type Skill = {
 
 export const projects: Project[] = [
   {
+    id: 'sistema-multiagentes-ia',
+    title: 'Sistema Multiagentes com IA',
+    description:
+      'Sistema de atendimento inteligente com arquitetura Supervisor + Especialistas. Recebe mensagens de texto ou áudio pelo Telegram, transcreve gravações, identifica a intenção do usuário e encaminha cada solicitação para agentes especializados em Suporte, Financeiro ou Customer Success, com memória conversacional e integrações externas.',
+    technologies: ['n8n', 'Google Gemini', 'Telegram', 'Google Calendar', 'Google Sheets', 'IA Generativa'],
+    image: '/sistema-multiagentes-n8n.png',
+    github: 'https://github.com/Paulo-Vitor-dev/sistema-multiagentes-n8n',
+    demo: '#',
+    categories: ['automation', 'apis'],
+    featured: true,
+  },
+  {
+    id: 'agente-reembolso-ia',
+    title: 'Agente Inteligente de Reembolso',
+    description:
+      'Automação criada com n8n para processar solicitações de reembolso. O fluxo recebe dados via Webhook, consulta clientes no Google Sheets, analisa sentimentos com IA, aplica regras de negócio e envia respostas por Gmail e Telegram conforme o perfil do solicitante.',
+    technologies: ['n8n', 'Google Gemini', 'Google Sheets', 'Gmail', 'Telegram', 'Webhooks'],
+    image: '/agente-reembolso-n8n.png',
+    github: 'https://github.com/Paulo-Vitor-dev/agente-inteligente-reembolso',
+    demo: '#',
+    categories: ['automation', 'apis'],
+    featured: true,
+  },
+  {
+    id: 'agente-comercial-ia',
+    title: 'Agente Comercial com IA',
+    description:
+      'Agente comercial desenvolvido com n8n para automatizar o atendimento por e-mail. O fluxo monitora novas mensagens no Gmail, filtra remetentes, interpreta dúvidas com Google Gemini, utiliza memória de contexto e envia respostas automáticas contextualizadas.',
+    technologies: ['n8n', 'Google Gemini', 'Gmail API', 'Prompt Engineering', 'Automação'],
+    image: '/agente-comercial-n8n.png',
+    github: 'https://github.com/Paulo-Vitor-dev/agente-comercial-n8n',
+    demo: '#',
+    categories: ['automation', 'apis'],
+    featured: true,
+  },
+  {
     id: 'spotify-clone',
     title: 'Spotify Clone',
     description:

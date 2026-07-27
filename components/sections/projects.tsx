@@ -13,6 +13,7 @@ const filters = [
   { label: 'Destaques', value: 'featured' },
   { label: 'Web', value: 'web' },
   { label: 'APIs & Back-end', value: 'apis' },
+  { label: 'IA & Automação', value: 'automation' },
   { label: 'Mobile', value: 'mobile' },
   { label: 'Design', value: 'design' },
 ]

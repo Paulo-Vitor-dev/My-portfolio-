@@ -7,7 +7,7 @@ import { SectionHeading } from '@/components/reveal'
 import { timeline, type TimelineStep } from '@/lib/data'
 
 const stats = [
-  { value: 3, suffix: '+', label: 'Anos de experiência' },
+  { value: 2, suffix: '+', label: 'Anos de experiência' },
   { value: 15, suffix: '+', label: 'Projetos realizados' },
   { value: 10, suffix: '+', label: 'Tecnologias' },
   { value: 100, suffix: '%', label: 'Dedicação' },

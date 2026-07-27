@@ -57,6 +57,20 @@ const achievements: Achievement[] = [
     position: { left: '77%', top: '18%' },
     size: 26,
   },
+  {
+    id: 'hashtag-imersao-agentes-ia',
+    title: 'Imersão Agentes de IA',
+    issuer: 'Hashtag Treinamentos',
+    date: '2026',
+    workload: 'Imersão',
+    description:
+      'Imersão prática focada na criação e aplicação de agentes de Inteligência Artificial e automações.',
+    image: '/certificado-hashtag-imersao-agentes-ia.png',
+    certificateUrl: '/certificado-hashtag-imersao-agentes-ia.pdf',
+    position: { left: '61%', top: '64%' },
+    size: 26,
+  }
+
 ]
 
 const futureStars = [
@@ -179,7 +193,7 @@ export function Achievements() {
 
           <svg className="pointer-events-none absolute inset-0 h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden>
             <motion.path
-              d="M 17 24 L 47 36 L 77 18 M 47 36 L 84 62 L 64 78 L 24 72 L 17 24"
+              d="M 17 24 L 47 36 L 77 18 M 47 36 L 61 64 L 84 62 L 64 78 L 24 72 L 17 24"
               fill="none"
               stroke="var(--accent)" strokeOpacity="0.25"
               strokeWidth="0.28"
@@ -255,7 +269,7 @@ export function Achievements() {
           ))}
 
           <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between gap-4 text-xs text-muted-foreground">
-            <span className="font-mono uppercase tracking-[0.16em]">3 conquistas mapeadas</span>
+            <span className="font-mono uppercase tracking-[0.16em]">4 conquistas mapeadas</span>
             <span className="hidden items-center gap-2 sm:flex"><Sparkles size={13} className="text-accent" /> Novas estrelas serão adicionadas aqui</span>
           </div>
         </div>
