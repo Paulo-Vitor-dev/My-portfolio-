@@ -195,7 +195,7 @@ export const timeline: TimelineStep[] = [
     description:
       'Desenvolvimento de fluxos automatizados com n8n, integração entre sistemas e criação de agentes inteligentes para otimização de processos.',
     details:
-      'Hoje venho unindo desenvolvimento web com automações e IA, criando fluxos que economizam tempo, conectam ferramentas e tornam processos mais inteligentes e escaláveis.',
+      'Hoje venho combinando desenvolvimento web com n8n, APIs e modelos de IA para automatizar tarefas e integrar ferramentas em fluxos de trabalho.',
     technologies: ['n8n', 'Python', 'APIs', 'IA', 'Automação'],
   },
 ]

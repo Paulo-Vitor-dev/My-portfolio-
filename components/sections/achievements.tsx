@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useMemo, useState } from 'react'
-import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import { Award, Download, ExternalLink, Sparkles, X } from 'lucide-react'
 import { SectionHeading } from '@/components/reveal'
 
@@ -159,7 +159,6 @@ function CertificateModal({ achievement, onClose }: { achievement: Achievement; 
 
 export function Achievements() {
   const [selected, setSelected] = useState<Achievement | null>(null)
-  const reduceMotion = useReducedMotion()
   const stars = useMemo(() => backgroundStars, [])
 
   return (
@@ -176,8 +175,8 @@ export function Achievements() {
           <motion.a
             href="/curriculo-paulo-vitor.pdf"
             download="Curriculo-Paulo-Vitor-Brandao.pdf"
-            whileHover={reduceMotion ? undefined : { y: -4, scale: 1.02 }}
-            whileTap={reduceMotion ? undefined : { scale: 0.98 }}
+            whileHover={{ y: -4, scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
             className="group inline-flex items-center gap-3 rounded-full border border-primary/35 bg-primary/10 px-6 py-3.5 font-medium text-foreground achievement-button-shadow transition hover:border-primary/70 hover:bg-primary/20"
           >
             <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary text-white transition group-hover:rotate-6">
@@ -201,7 +200,7 @@ export function Achievements() {
               initial={{ pathLength: 0, opacity: 0 }}
               whileInView={{ pathLength: 1, opacity: 1 }}
               viewport={{ once: true, amount: 0.4 }}
-              transition={{ duration: reduceMotion ? 0 : 2.3, ease: 'easeInOut' }}
+              transition={{ duration: 2.3, ease: 'easeInOut' }}
             />
           </svg>
 
@@ -210,7 +209,7 @@ export function Achievements() {
               key={index}
               className="absolute rounded-full bg-white shadow-[0_0_10px_rgba(255,255,255,0.9)]"
               style={{ left: star.left, top: star.top, width: star.size, height: star.size }}
-              animate={reduceMotion ? undefined : { opacity: [0.25, 1, 0.3], scale: [0.8, 1.25, 0.85] }}
+              animate={{ opacity: [0.25, 1, 0.3], scale: [0.8, 1.25, 0.85] }}
               transition={{ duration: 2.4 + (index % 4), repeat: Infinity, delay: star.delay }}
               aria-hidden
             />
@@ -221,7 +220,7 @@ export function Achievements() {
               key={`${star.left}-${star.top}`}
               className="group absolute -translate-x-1/2 -translate-y-1/2"
               style={{ left: star.left, top: star.top }}
-              animate={reduceMotion ? undefined : { y: [0, -5, 0], opacity: [0.45, 0.8, 0.45] }}
+              animate={{ y: [0, -5, 0], opacity: [0.45, 0.8, 0.45] }}
               transition={{ duration: 4.5, repeat: Infinity, delay: star.delay }}
             >
               <span
@@ -245,14 +244,14 @@ export function Achievements() {
               initial={{ opacity: 0, scale: 0 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              whileHover={reduceMotion ? undefined : { scale: 1.12 }}
-              whileTap={reduceMotion ? undefined : { scale: 0.96 }}
+              whileHover={{ scale: 1.12 }}
+              whileTap={{ scale: 0.96 }}
               transition={{ duration: 0.7, ease: 'backOut' }}
               aria-label={`Ver certificado ${achievement.title}`}
             >
               <motion.span
                 className="absolute inset-1/2 h-24 w-24 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/25 blur-2xl"
-                animate={reduceMotion ? undefined : { scale: [0.8, 1.3, 0.8], opacity: [0.35, 0.75, 0.35] }}
+                animate={{ scale: [0.8, 1.3, 0.8], opacity: [0.35, 0.75, 0.35] }}
                 transition={{ duration: 3, repeat: Infinity }}
                 aria-hidden
               />

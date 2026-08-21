@@ -7,10 +7,10 @@ import { SectionHeading } from '@/components/reveal'
 import { timeline, type TimelineStep } from '@/lib/data'
 
 const stats = [
-  { value: 2, suffix: '+', label: 'Anos de experiência' },
+  { value: 2, suffix: '+', label: 'Anos criando projetos' },
   { value: 15, suffix: '+', label: 'Projetos realizados' },
   { value: 10, suffix: '+', label: 'Tecnologias' },
-  { value: 100, suffix: '%', label: 'Dedicação' },
+  { value: 4, suffix: '', label: 'Certificações em destaque' },
 ]
 
 function AnimatedNumber({ value, suffix }: { value: number; suffix: string }) {
@@ -139,7 +139,7 @@ export function About() {
         <SectionHeading
           eyebrow="A Jornada"
           title={<>Cada linha de código conta <span className="gradient-text">uma história</span></>}
-          description="Sou estudante de Análise e Desenvolvimento de Sistemas e construo aplicações web, interfaces responsivas, APIs e automações com IA. Minha jornada une aprendizado constante, prática em projetos reais e vontade de transformar problemas em soluções digitais eficientes."
+          description="Sou estudante de Análise e Desenvolvimento de Sistemas. Aqui reúno a evolução dos meus estudos, projetos Full Stack, experiência com interfaces web e trabalhos de automação com n8n e IA."
         />
 
         <div className="mb-20 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">

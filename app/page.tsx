@@ -1,4 +1,3 @@
-import { CustomCursor } from '@/components/custom-cursor'
 import { SiteNav } from '@/components/site-nav'
 import { SiteFooter } from '@/components/site-footer'
 import { Hero } from '@/components/hero/hero'
@@ -14,7 +13,6 @@ export default function Page() {
   return (
     <>
       <div className="noise-overlay" aria-hidden />
-      <CustomCursor />
       <SiteNav />
       <main className="relative">
         <Hero />

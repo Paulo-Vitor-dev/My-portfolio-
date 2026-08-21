@@ -1,10 +1,11 @@
 'use client'
 
 import { useMemo, useRef } from 'react'
-import { ThemePalette, usePortfolioTheme } from '@/lib/theme'
+import { portfolioPalette, type ThemePalette } from '@/lib/palette'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { Sparkles } from '@react-three/drei'
 import * as THREE from 'three'
+import { useSceneVisibility } from '@/lib/use-scene-visibility'
 
 type Palette = ThemePalette
 
@@ -88,13 +89,16 @@ function FieldParticles({ palette }: { palette: Palette }) {
 }
 
 export function ContactSphere() {
-  const { theme, palette } = usePortfolioTheme()
+  const palette = portfolioPalette
+  const { containerRef, active } = useSceneVisibility()
+
   return (
+    <div ref={containerRef} className="h-full w-full">
     <Canvas
-      key={theme}
       camera={{ position: [0, 0, 7], fov: 55 }}
-      dpr={[1, 1.8]}
+      dpr={[1, 1.5]}
       gl={{ antialias: true, alpha: true }}
+      frameloop={active ? 'always' : 'never'}
     >
       <ambientLight intensity={0.4} />
       <pointLight position={[5, 5, 5]} intensity={1.5} color={palette.light} />
@@ -103,5 +107,6 @@ export function ContactSphere() {
       <FieldParticles palette={palette} />
       <Sparkles count={40} scale={8} size={3} speed={0.4} color={palette.light} />
     </Canvas>
+    </div>
   )
 }

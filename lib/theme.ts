@@ -36,12 +36,8 @@ export function usePortfolioTheme() {
     update()
 
     window.addEventListener('portfolio-theme-change', update)
-    const observer = new MutationObserver(update)
-    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] })
-
     return () => {
       window.removeEventListener('portfolio-theme-change', update)
-      observer.disconnect()
     }
   }, [])
 

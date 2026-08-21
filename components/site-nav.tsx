@@ -1,17 +1,30 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, type MouseEvent } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import { navLinks } from '@/lib/data'
-import { ThemeToggle } from '@/components/theme-toggle'
+
+function scrollToSection(event: MouseEvent<HTMLAnchorElement>, href: string) {
+  if (!href.startsWith('#')) return
+
+  const target = document.querySelector<HTMLElement>(href)
+  if (!target) return
+
+  event.preventDefault()
+  target.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  window.history.replaceState(null, '', href)
+}
 
 export function SiteNav() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40)
+    const onScroll = () => {
+      const nextScrolled = window.scrollY > 40
+      setScrolled((current) => (current === nextScrolled ? current : nextScrolled))
+    }
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
@@ -31,6 +44,7 @@ export function SiteNav() {
       >
         <a
           href="#hero"
+          onClick={(event) => scrollToSection(event, '#hero')}
           className="flex h-10 w-10 items-center justify-center rounded-full border border-primary/25 bg-primary/10 font-heading text-sm font-bold text-primary transition-all hover:bg-primary hover:text-primary-foreground"
           aria-label="Início"
         >
@@ -42,6 +56,7 @@ export function SiteNav() {
             <li key={link.href}>
               <a
                 href={link.href}
+                onClick={(event) => scrollToSection(event, link.href)}
                 className="rounded-full px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground lg:px-4"
               >
                 {link.label}
@@ -50,19 +65,17 @@ export function SiteNav() {
           ))}
         </ul>
 
-        <div className="flex items-center gap-2">
-          <ThemeToggle />
-          <a
-            href="#contato"
-            className="hidden rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-transform hover:scale-105 md:inline-block"
-          >
-            Vamos conversar
-          </a>
-        </div>
+        <a
+          href="#contato"
+          onClick={(event) => scrollToSection(event, '#contato')}
+          className="hidden rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-transform hover:scale-105 md:inline-block"
+        >
+          Vamos conversar
+        </a>
 
         <button
           type="button"
-          onClick={() => setOpen((v) => !v)}
+          onClick={() => setOpen((value) => !value)}
           className="flex h-10 w-10 items-center justify-center rounded-full border border-primary/20 text-foreground md:hidden"
           aria-label={open ? 'Fechar menu' : 'Abrir menu'}
         >
@@ -83,7 +96,10 @@ export function SiteNav() {
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    onClick={() => setOpen(false)}
+                    onClick={(event) => {
+                      setOpen(false)
+                      scrollToSection(event, link.href)
+                    }}
                     className="block rounded-lg px-4 py-3 text-sm text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
                   >
                     {link.label}

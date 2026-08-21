@@ -9,7 +9,6 @@ export function CustomCursor() {
   const [hovering, setHovering] = useState(false)
 
   useEffect(() => {
-    // Only enable on devices with a fine pointer
     const mq = window.matchMedia('(hover: hover) and (pointer: fine)')
     if (!mq.matches) return
 
@@ -19,35 +18,51 @@ export function CustomCursor() {
     const pos = { x: window.innerWidth / 2, y: window.innerHeight / 2 }
     const ring = { x: pos.x, y: pos.y }
     let raf = 0
+    let isHovering = false
 
-    const onMove = (e: MouseEvent) => {
-      pos.x = e.clientX
-      pos.y = e.clientY
-      if (dotRef.current) {
-        dotRef.current.style.transform = `translate3d(${pos.x}px, ${pos.y}px, 0)`
-      }
-      const target = e.target as HTMLElement
-      setHovering(
-        !!target.closest('a, button, [data-cursor="hover"], input, textarea'),
-      )
-    }
-
-    const loop = () => {
+    const animateRing = () => {
       ring.x += (pos.x - ring.x) * 0.18
       ring.y += (pos.y - ring.y) * 0.18
+
       if (ringRef.current) {
         ringRef.current.style.transform = `translate3d(${ring.x}px, ${ring.y}px, 0)`
       }
-      raf = requestAnimationFrame(loop)
+
+      if (Math.abs(pos.x - ring.x) > 0.1 || Math.abs(pos.y - ring.y) > 0.1) {
+        raf = requestAnimationFrame(animateRing)
+      } else {
+        ring.x = pos.x
+        ring.y = pos.y
+        raf = 0
+      }
     }
 
-    window.addEventListener('mousemove', onMove)
-    raf = requestAnimationFrame(loop)
+    const onMove = (event: MouseEvent) => {
+      pos.x = event.clientX
+      pos.y = event.clientY
+
+      if (dotRef.current) {
+        dotRef.current.style.transform = `translate3d(${pos.x}px, ${pos.y}px, 0)`
+      }
+
+      const target = event.target as HTMLElement
+      const nextHovering = Boolean(
+        target.closest('a, button, [data-cursor="hover"], input, textarea'),
+      )
+      if (nextHovering !== isHovering) {
+        isHovering = nextHovering
+        setHovering(nextHovering)
+      }
+
+      if (!raf) raf = requestAnimationFrame(animateRing)
+    }
+
+    window.addEventListener('mousemove', onMove, { passive: true })
 
     return () => {
       document.documentElement.classList.remove('custom-cursor-active')
       window.removeEventListener('mousemove', onMove)
-      cancelAnimationFrame(raf)
+      if (raf) cancelAnimationFrame(raf)
     }
   }, [])
 

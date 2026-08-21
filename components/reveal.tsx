@@ -22,14 +22,14 @@ export function Reveal({
     hidden: {
       opacity: 0,
       y,
-      filter: blur ? 'blur(10px)' : 'blur(0px)',
+      filter: blur ? 'blur(6px)' : 'blur(0px)',
     },
     visible: {
       opacity: 1,
       y: 0,
       filter: 'blur(0px)',
       transition: {
-        duration: 0.8,
+        duration: 0.65,
         delay,
         ease: [0.16, 1, 0.3, 1],
       },

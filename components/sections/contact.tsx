@@ -47,7 +47,7 @@ export function Contact() {
           </Reveal>
           <Reveal delay={0.1}>
             <h2 className="font-heading text-4xl font-bold tracking-tight text-balance sm:text-6xl">
-              Vamos construir algo <span className="gradient-text text-glow">incrível</span> juntos?
+              Quer conversar sobre uma <span className="gradient-text text-glow">oportunidade</span> ou projeto?
             </h2>
           </Reveal>
           <Reveal delay={0.2}>

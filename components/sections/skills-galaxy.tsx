@@ -5,7 +5,8 @@ import { Canvas, useFrame } from '@react-three/fiber'
 import { Html, Ring } from '@react-three/drei'
 import * as THREE from 'three'
 import { skills } from '@/lib/data'
-import { ThemePalette, usePortfolioTheme } from '@/lib/theme'
+import { portfolioPalette, type ThemePalette } from '@/lib/palette'
+import { useSceneVisibility } from '@/lib/use-scene-visibility'
 
 type Palette = ThemePalette
 
@@ -31,7 +32,6 @@ function SkillNode({
     >
       <Html center distanceFactor={8} zIndexRange={[10, 0]}>
         <div
-          suppressHydrationWarning
           data-cursor="hover"
           className="select-none whitespace-nowrap rounded-full border px-2 py-1 text-[11px] sm:px-3 sm:py-1.5 sm:text-[13px] md:text-[14px] font-medium backdrop-blur-md transition-transform duration-300 hover:scale-110"
           style={{
@@ -39,7 +39,6 @@ function SkillNode({
             background: palette.surface,
             color,
             boxShadow: `0 0 16px ${color}33`,
-            fontFamily: 'var(--font-poppins)'
           }}
         >
           {name}
@@ -49,27 +48,27 @@ function SkillNode({
   )
 }
 
-function OrbitRing({ radius, palette, isLight }: { radius: number; palette: Palette; isLight: boolean }) {
+function OrbitRing({ radius, palette }: { radius: number; palette: Palette }) {
   const lineMaterialRef = useRef<THREE.MeshBasicMaterial>(null)
   const glowMaterialRef = useRef<THREE.MeshBasicMaterial>(null)
-  const thickness = isLight ? 0.025 : 0.018
-  const glowThickness = isLight ? 0.055 : 0.05
-  const baseOpacity = isLight ? 0.48 : 0.34
-  const glowOpacity = isLight ? 0.1 : 0.13
+  const thickness = 0.018
+  const glowThickness = 0.05
+  const baseOpacity = 0.34
+  const glowOpacity = 0.13
 
   useFrame((state) => {
     const pulse = (Math.sin(state.clock.elapsedTime * 1.15) + 1) / 2
 
     if (lineMaterialRef.current) {
-      lineMaterialRef.current.opacity = baseOpacity + pulse * (isLight ? 0.08 : 0.12)
+      lineMaterialRef.current.opacity = baseOpacity + pulse * 0.12
     }
 
     if (glowMaterialRef.current) {
-      glowMaterialRef.current.opacity = glowOpacity + pulse * (isLight ? 0.04 : 0.07)
+      glowMaterialRef.current.opacity = glowOpacity + pulse * 0.07
     }
   })
 
-  const ringColor = isLight ? palette.dark : palette.light
+  const ringColor = palette.light
 
   return (
     <group rotation={[Math.PI / 2.4, 0, 0]}>
@@ -103,7 +102,7 @@ function OrbitRing({ radius, palette, isLight }: { radius: number; palette: Pale
   )
 }
 
-function Galaxy({ palette, isLight }: { palette: Palette; isLight: boolean }) {
+function Galaxy({ palette }: { palette: Palette }) {
   const groupRef = useRef<THREE.Group>(null)
   const orbitRefs = useRef<Record<number, THREE.Group | null>>({})
 
@@ -145,20 +144,10 @@ function Galaxy({ palette, isLight }: { palette: Palette; isLight: boolean }) {
 
   return (
     <group ref={groupRef}>
-      {/* central background with name (replaces sphere) */}
-      <mesh>
-        <sphereGeometry args={[0.6, 32, 32]} />
-        <meshStandardMaterial
-          color="#00000000"
-          transparent
-          opacity={0}
-          roughness={1}
-        />
-      </mesh>
       <Html center distanceFactor={9} zIndexRange={[20, 0]}>
-        <div suppressHydrationWarning className="pointer-events-none select-none text-center">
+        <div className="pointer-events-none select-none text-center">
           <div id="skills-central-bg" className="mx-auto flex h-48 w-48 items-center justify-center rounded-full" style={{ background: `radial-gradient(circle at 30% 20%, ${palette.light}, ${palette.primary} 45%, ${palette.dark} 100%)`, boxShadow: `0 10px 30px ${palette.primary}40` }}>
-            <div className="text-center px-2" style={{ fontFamily: 'var(--font-poppins)', lineHeight: 1 }}>
+            <div className="px-2 text-center font-heading" style={{ lineHeight: 1 }}>
               <div className="font-heading text-sm font-bold tracking-tight text-white">PAULO</div>
               <div className="font-heading text-sm font-bold tracking-tight text-white">VITOR BRANDÃO</div>
             </div>
@@ -168,7 +157,7 @@ function Galaxy({ palette, isLight }: { palette: Palette; isLight: boolean }) {
 
       {[1, 2, 3].map((orbit) => (
         <group key={orbit}>
-          <OrbitRing radius={ORBIT_RADII[orbit]} palette={palette} isLight={isLight} />
+          <OrbitRing radius={ORBIT_RADII[orbit]} palette={palette} />
           <group ref={(el) => (orbitRefs.current[orbit] = el)}>
             {grouped[orbit].map((s) => (
               <SkillNode
@@ -188,18 +177,22 @@ function Galaxy({ palette, isLight }: { palette: Palette; isLight: boolean }) {
 }
 
 export function SkillsGalaxyScene() {
-  const { theme, palette } = usePortfolioTheme()
+  const palette = portfolioPalette
+  const { containerRef, active } = useSceneVisibility()
+
   return (
+    <div ref={containerRef} className="h-full w-full">
     <Canvas
-      key={theme}
       camera={{ position: [0, 1.5, 9], fov: 55 }}
-      dpr={[1, 1.8]}
+      dpr={[1, 1.5]}
       gl={{ antialias: true, alpha: true }}
+      frameloop={active ? 'always' : 'never'}
     >
       <ambientLight intensity={0.5} />
       <pointLight position={[0, 0, 0]} intensity={2} color={palette.primary} distance={12} />
       <pointLight position={[6, 6, 6]} intensity={0.6} color={palette.light} />
-      <Galaxy palette={palette} isLight={theme === 'light'} />
+      <Galaxy palette={palette} />
     </Canvas>
+    </div>
   )
 }

@@ -20,7 +20,7 @@ export function Skills() {
               Uma <span className="gradient-text">galáxia</span> de tecnologias
             </>
           }
-          description="Tecnologias que utilizo para construir interfaces modernas, APIs, bancos de dados, automações e aplicações web completas."
+          description="Tecnologias que aparecem nos meus projetos de front-end, back-end, bancos de dados, automação e integração de APIs."
         />
       </div>
 

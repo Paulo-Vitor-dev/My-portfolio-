@@ -1,24 +1,24 @@
 'use client'
 
 import { useMemo, useRef } from 'react'
-import { ThemePalette, usePortfolioTheme } from '@/lib/theme'
-import { Canvas, useFrame, useThree } from '@react-three/fiber'
+import { portfolioPalette, type ThemePalette } from '@/lib/palette'
+import { Canvas, useFrame } from '@react-three/fiber'
 import { Float, Icosahedron, Torus } from '@react-three/drei'
 import * as THREE from 'three'
+import { useSceneVisibility } from '@/lib/use-scene-visibility'
 
 type Palette = ThemePalette
 
 function ParticleField({ count = 1400, palette }: { count?: number; palette: Palette }) {
   const pointsRef = useRef<THREE.Points>(null)
-  const { viewport } = useThree()
   const mouse = useRef(new THREE.Vector2(0, 0))
+  const pointerTarget = useRef(new THREE.Vector2(0, 0))
 
-  const { positions, colors, scales } = useMemo(() => {
+  const { positions, colors } = useMemo(() => {
     const primary = new THREE.Color(palette.primary)
     const light = new THREE.Color(palette.light)
     const positions = new Float32Array(count * 3)
     const colors = new Float32Array(count * 3)
-    const scales = new Float32Array(count)
     for (let i = 0; i < count; i++) {
       const i3 = i * 3
       positions[i3] = (Math.random() - 0.5) * 18
@@ -28,27 +28,17 @@ function ParticleField({ count = 1400, palette }: { count?: number; palette: Pal
       colors[i3] = c.r
       colors[i3 + 1] = c.g
       colors[i3 + 2] = c.b
-      scales[i] = Math.random() * 0.05 + 0.01
     }
-    return { positions, colors, scales }
+    return { positions, colors }
   }, [count, palette.primary, palette.light])
 
   useFrame((state) => {
     const t = state.clock.elapsedTime
-    mouse.current.lerp(
-      new THREE.Vector2(state.pointer.x, state.pointer.y),
-      0.05,
-    )
+    pointerTarget.current.set(state.pointer.x, state.pointer.y)
+    mouse.current.lerp(pointerTarget.current, 0.05)
     if (pointsRef.current) {
       pointsRef.current.rotation.y = t * 0.04 + mouse.current.x * 0.4
       pointsRef.current.rotation.x = mouse.current.y * 0.25
-      const positions = pointsRef.current.geometry.attributes.position
-        .array as Float32Array
-      for (let i = 0; i < count; i++) {
-        const i3 = i * 3
-        positions[i3 + 1] += Math.sin(t * 0.5 + i) * 0.0015
-      }
-      pointsRef.current.geometry.attributes.position.needsUpdate = true
     }
   })
 
@@ -185,13 +175,16 @@ function CameraRig() {
 }
 
 export function HeroScene() {
-  const { theme, palette } = usePortfolioTheme()
+  const palette = portfolioPalette
+  const { containerRef, active } = useSceneVisibility()
+
   return (
+    <div ref={containerRef} className="h-full w-full">
     <Canvas
-      key={theme}
       camera={{ position: [0, 0, 9], fov: 60 }}
-      dpr={[1, 1.8]}
+      dpr={[1, 1.5]}
       gl={{ antialias: true, alpha: true }}
+      frameloop={active ? 'always' : 'never'}
       className="!absolute inset-0"
     >
       <ambientLight intensity={0.4} />
@@ -203,5 +196,6 @@ export function HeroScene() {
       <CameraRig />
       <fog attach="fog" args={[palette.background, 9, 20]} />
     </Canvas>
+    </div>
   )
 }

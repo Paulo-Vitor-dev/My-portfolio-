@@ -89,7 +89,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            className="text-5xl font-bold leading-[0.95] tracking-tight text-balance sm:text-7xl lg:text-8xl" style={{ fontFamily: 'var(--font-poppins)' }}
+            className="font-heading text-5xl font-bold leading-[0.95] tracking-tight text-balance sm:text-7xl lg:text-8xl"
           >
             <span className="block text-foreground">PAULO VITOR</span>
             <span className="block gradient-text text-glow">BRANDÃO</span>

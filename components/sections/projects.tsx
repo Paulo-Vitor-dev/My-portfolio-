@@ -114,7 +114,6 @@ export function Projects() {
               transition={{ duration: 0.45, ease: 'easeOut' }}
               className="grid items-center gap-12 lg:grid-cols-[1.08fr_0.92fr] lg:gap-16"
             >
-              {/* Pilha visual inspirada na apresentação do vídeo */}
               <div className="relative mx-auto h-[400px] w-full max-w-[610px] sm:h-[470px] lg:h-[530px]">
                 <div className="absolute inset-x-[12%] bottom-[3%] h-20 rounded-[50%] bg-primary/15 blur-3xl" />
 
@@ -147,7 +146,7 @@ export function Projects() {
                       }`}
                     >
                       <Image
-                        src={project.image || '/placeholder.svg'}
+                        src={project.image}
                         alt={`Prévia do ${project.title}`}
                         fill
                         sizes="(max-width: 1024px) 80vw, 40vw"
@@ -196,15 +195,13 @@ export function Projects() {
                 )}
               </div>
 
-              {/* Conteúdo que muda junto com o projeto ativo */}
               <div className="relative min-h-[390px]">
                 <AnimatePresence mode="wait" custom={direction}>
                   <motion.div
                     key={activeProject.id}
-                    custom={direction}
-                    initial={(dir) => ({ opacity: 0, x: dir * 30, filter: 'blur(5px)' })}
+                    initial={{ opacity: 0, x: direction * 30, filter: 'blur(5px)' }}
                     animate={{ opacity: 1, x: 0, filter: 'blur(0px)' }}
-                    exit={(dir) => ({ opacity: 0, x: dir * -24, filter: 'blur(5px)' })}
+                    exit={{ opacity: 0, x: direction * -24, filter: 'blur(5px)' }}
                     transition={{ duration: 0.32, ease: 'easeOut' }}
                     className="flex h-full flex-col justify-center"
                   >
