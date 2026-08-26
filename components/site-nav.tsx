@@ -3,6 +3,7 @@
 import { useEffect, useState, type MouseEvent } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
+import { usePathname } from 'next/navigation'
 import { navLinks } from '@/lib/data'
 
 function scrollToSection(event: MouseEvent<HTMLAnchorElement>, href: string) {
@@ -17,6 +18,10 @@ function scrollToSection(event: MouseEvent<HTMLAnchorElement>, href: string) {
 }
 
 export function SiteNav() {
+  const pathname = usePathname()
+  const isHome = pathname === '/'
+  const resolveHref = (href: string) => (isHome ? href : `/${href}`)
+
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
 
@@ -43,8 +48,8 @@ export function SiteNav() {
         }`}
       >
         <a
-          href="#hero"
-          onClick={(event) => scrollToSection(event, '#hero')}
+          href={resolveHref('#hero')}
+          onClick={(event) => { if (isHome) scrollToSection(event, '#hero') }}
           className="flex h-10 w-10 items-center justify-center rounded-full border border-primary/25 bg-primary/10 font-heading text-sm font-bold text-primary transition-all hover:bg-primary hover:text-primary-foreground"
           aria-label="Início"
         >
@@ -55,8 +60,8 @@ export function SiteNav() {
           {navLinks.map((link) => (
             <li key={link.href}>
               <a
-                href={link.href}
-                onClick={(event) => scrollToSection(event, link.href)}
+                href={resolveHref(link.href)}
+                onClick={(event) => { if (isHome) scrollToSection(event, link.href) }}
                 className="rounded-full px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground lg:px-4"
               >
                 {link.label}
@@ -66,8 +71,8 @@ export function SiteNav() {
         </ul>
 
         <a
-          href="#contato"
-          onClick={(event) => scrollToSection(event, '#contato')}
+          href={resolveHref('#contato')}
+          onClick={(event) => { if (isHome) scrollToSection(event, '#contato') }}
           className="hidden rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-transform hover:scale-105 md:inline-block"
         >
           Vamos conversar
@@ -95,10 +100,10 @@ export function SiteNav() {
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <a
-                    href={link.href}
+                    href={resolveHref(link.href)}
                     onClick={(event) => {
                       setOpen(false)
-                      scrollToSection(event, link.href)
+                      if (isHome) scrollToSection(event, link.href)
                     }}
                     className="block rounded-lg px-4 py-3 text-sm text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
                   >

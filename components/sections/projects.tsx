@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { AnimatePresence, motion } from 'framer-motion'
 import { ArrowLeft, ArrowRight, ArrowUpRight } from 'lucide-react'
 import { GithubIcon } from '@/components/brand-icons'
@@ -214,12 +215,19 @@ export function Projects() {
                     </p>
 
                     <div className="mt-8 flex flex-wrap gap-3">
+                      <Link
+                        href={`/projetos/${activeProject.id}`}
+                        className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/20"
+                      >
+                        Ver case <ArrowUpRight size={15} />
+                      </Link>
+
                       {activeProject.demo !== '#' && (
                         <a
                           href={activeProject.demo}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/20"
+                          className="inline-flex items-center gap-2 rounded-full border border-primary/35 bg-primary/5 px-5 py-2.5 text-sm font-medium text-foreground transition-all hover:-translate-y-0.5 hover:border-primary/60 hover:bg-primary/10"
                         >
                           Acessar projeto <ArrowUpRight size={15} />
                         </a>
