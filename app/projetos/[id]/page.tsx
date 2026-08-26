@@ -89,7 +89,7 @@ export default async function ProjectCasePage({ params }: CasePageProps) {
                 <CaseHeroSphere />
               </div>
               <div className="absolute inset-x-5 bottom-5 z-10 glass rounded-2xl p-5 backdrop-blur-md sm:inset-x-7 sm:bottom-7 sm:p-6">
-                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-accent">POR TRÁS DO PROJETO</p>
+                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-accent">Minha atuação</p>
                 <p className="mt-2 text-sm leading-6 text-foreground/90 sm:text-base sm:leading-7">{caseStudy.role}</p>
               </div>
             </div>

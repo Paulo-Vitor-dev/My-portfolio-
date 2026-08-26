@@ -8,10 +8,12 @@ import { Experience } from '@/components/sections/experience'
 import { Contact } from '@/components/sections/contact'
 import { Achievements } from '@/components/sections/achievements'
 import { TechMarquee } from '@/components/sections/tech-marquee'
+import { SystemPreloader } from '@/components/preloader/system-preloader'
 
 export default function Page() {
   return (
     <>
+      <SystemPreloader />
       <div className="noise-overlay" aria-hidden />
       <SiteNav />
       <main className="relative">
