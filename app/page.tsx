@@ -16,12 +16,12 @@ export default function Page() {
       <SiteNav />
       <main className="relative">
         <Hero />
+        <Projects />
         <TechMarquee />
         <About />
-        <Achievements />
         <Skills />
-        <Projects />
         <Experience />
+        <Achievements />
         <Contact />
       </main>
       <SiteFooter />

@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion, useInView, useScroll, useTransform } from 'framer-motion'
-import { X } from 'lucide-react'
+import { Download, X } from 'lucide-react'
 import { SectionHeading } from '@/components/reveal'
 import { timeline, type TimelineStep } from '@/lib/data'
 
@@ -141,6 +141,17 @@ export function About() {
           title={<>Cada linha de código conta <span className="gradient-text">uma história</span></>}
           description="Sou estudante de Análise e Desenvolvimento de Sistemas. Aqui reúno a evolução dos meus estudos, projetos Full Stack, experiência com interfaces web e trabalhos de automação com n8n e IA."
         />
+
+        <div className="mb-12 flex justify-center">
+          <a
+            href="/curriculo-paulo-vitor.pdf"
+            download
+            className="group inline-flex items-center gap-2 rounded-full border border-primary/35 bg-primary/5 px-5 py-2.5 text-sm font-semibold text-accent transition-all hover:-translate-y-0.5 hover:bg-primary/10 hover:purple-glow"
+          >
+            Saiba mais sobre minha trajetória
+            <Download size={16} className="transition-transform group-hover:translate-y-0.5" />
+          </a>
+        </div>
 
         <div className="mb-20 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {stats.map((stat) => (

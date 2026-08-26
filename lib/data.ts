@@ -36,7 +36,7 @@ export const projects: Project[] = [
     id: 'sistema-multiagentes-ia',
     title: 'Sistema Multiagentes com IA',
     description:
-      'Sistema de atendimento inteligente com arquitetura Supervisor + Especialistas. Recebe mensagens de texto ou áudio pelo Telegram, transcreve gravações, identifica a intenção do usuário e encaminha cada solicitação para agentes especializados em Suporte, Financeiro ou Customer Success, com memória conversacional e integrações externas.',
+      'Sistema criado para centralizar e automatizar atendimentos que exigem diferentes áreas de suporte. Um agente supervisor interpreta mensagens de texto ou áudio no Telegram e encaminha cada solicitação ao especialista adequado, mantendo contexto e integrando calendário e dados externos para reduzir triagens manuais.',
     technologies: ['n8n', 'Google Gemini', 'Telegram', 'Google Calendar', 'Google Sheets', 'IA Generativa'],
     image: '/sistema-multiagentes-n8n.png',
     github: 'https://github.com/Paulo-Vitor-dev/sistema-multiagentes-n8n',
@@ -48,7 +48,7 @@ export const projects: Project[] = [
     id: 'agente-reembolso-ia',
     title: 'Agente Inteligente de Reembolso',
     description:
-      'Automação criada com n8n para processar solicitações de reembolso. O fluxo recebe dados via Webhook, consulta clientes no Google Sheets, analisa sentimentos com IA, aplica regras de negócio e envia respostas por Gmail e Telegram conforme o perfil do solicitante.',
+      'Automação desenvolvida para reduzir o trabalho manual no processamento de solicitações de reembolso. O fluxo valida dados, consulta clientes, interpreta o contexto com IA e aplica regras de negócio antes de responder por Gmail ou Telegram, tornando a análise mais rápida e consistente.',
     technologies: ['n8n', 'Google Gemini', 'Google Sheets', 'Gmail', 'Telegram', 'Webhooks'],
     image: '/agente-reembolso-n8n.png',
     github: 'https://github.com/Paulo-Vitor-dev/agente-inteligente-reembolso',
@@ -60,7 +60,7 @@ export const projects: Project[] = [
     id: 'agente-comercial-ia',
     title: 'Agente Comercial com IA',
     description:
-      'Agente comercial desenvolvido com n8n para automatizar o atendimento por e-mail. O fluxo monitora novas mensagens no Gmail, filtra remetentes, interpreta dúvidas com Google Gemini, utiliza memória de contexto e envia respostas automáticas contextualizadas.',
+      'Agente criado para acelerar o atendimento comercial por e-mail e reduzir respostas repetitivas. O fluxo monitora novas mensagens, identifica dúvidas com IA, preserva o contexto da conversa e gera respostas automáticas personalizadas, mantendo o atendimento mais ágil e organizado.',
     technologies: ['n8n', 'Google Gemini', 'Gmail API', 'Prompt Engineering', 'Automação'],
     image: '/agente-comercial-n8n.png',
     github: 'https://github.com/Paulo-Vitor-dev/agente-comercial-n8n',
@@ -72,7 +72,7 @@ export const projects: Project[] = [
     id: 'spotify-clone',
     title: 'Spotify Clone',
     description:
-      'Clone da interface do Spotify desenvolvido com React, Next.js e TypeScript, com busca dinâmica, playlists e layout responsivo.',
+      'Aplicação criada para praticar a construção de uma experiência de streaming moderna e responsiva. Reproduz padrões de navegação do Spotify com busca dinâmica, organização de playlists e componentes reutilizáveis, reforçando arquitetura de interface com React, Next.js e TypeScript.',
     technologies: ['React', 'Next.js', 'TypeScript', 'HTML', 'CSS', 'JavaScript'],
     image: '/spotify-clone-project.png',
     github: 'https://github.com/Paulo-Vitor-dev/copia-spotify',
@@ -84,7 +84,7 @@ export const projects: Project[] = [
     id: 'techpoint-ecommerce',
     title: 'TechPoint E-commerce',
     description:
-      'E-commerce de tecnologia desenvolvido com HTML, CSS e JavaScript, com filtros, busca dinâmica e interface responsiva.',
+      'E-commerce desenvolvido para facilitar a descoberta de produtos de tecnologia em um catálogo responsivo. A interface combina busca e filtros dinâmicos para reduzir o tempo até o produto desejado e tornar a navegação mais clara em desktop e dispositivos móveis.',
     technologies: ['HTML', 'CSS', 'JavaScript'],
     image: '/techpoint-project.png',
     github: 'https://github.com/Paulo-Vitor-dev/ecommerce-project',
@@ -95,7 +95,7 @@ export const projects: Project[] = [
     id: 'fullstack-project',
     title: 'Meu primeiro Projeto Full Stack',
     description:
-      'Aplicação Fullstack com React, Node.js, MongoDB, integração com API REST, para cadastro e exclusão de usuários, conectado com o front-end para mostrar esses usuários.',
+      'Aplicação Full Stack criada para consolidar o fluxo completo entre interface, API e banco de dados. Permite cadastrar, listar e excluir usuários por uma API REST conectada ao MongoDB, demonstrando na prática a integração entre React, Node.js e Express.',
     technologies: ['React', 'Node.js', 'Express', 'MongoDB'],
     image: '/fullstack-project.png',
     github: 'https://github.com/Paulo-Vitor-dev/first-fullstack-project',
@@ -107,7 +107,7 @@ export const projects: Project[] = [
     id: 'pelos-e-patas',
     title: 'Pelos & Patas - PetShop',
     description:
-      'Sistema web para pet shop com autenticação de usuários, backend em Node.js, Express e integração com banco de dados MySQL.',
+      'Sistema de gestão criado para organizar operações de um pet shop em um único ambiente. Centraliza dados de clientes e pets e evolui para serviços e agendamentos, utilizando API REST e MySQL para substituir controles dispersos por um fluxo estruturado e fácil de manter.',
     technologies: ['Node.js', 'Express', 'MySQL'],
     image: '/Pelos&Patas-project.png',
     github: 'https://github.com/Paulo-Vitor-dev/petshop-project',
@@ -118,7 +118,7 @@ export const projects: Project[] = [
     id: 'hand',
     title: 'Hand 4 You - Landing Page',
     description:
-      'Landing Page para plataforma de serviços domésticos desenvolvida com Next.js, React, TypeScript e Tailwind CSS.',
+      'Landing page criada para apresentar uma plataforma de serviços domésticos com foco em conversão e clareza da proposta de valor. A estrutura responsiva destaca benefícios e chamadas para ação, usando Next.js e boas práticas de interface para melhorar descoberta, performance e experiência de navegação.',
     technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS'],
     image: '/hand4you-project.png',
     github: 'https://github.com/Paulo-Vitor-dev/LandingPage-Hand',
@@ -223,11 +223,11 @@ export const skills: Skill[] = [
 
 export const navLinks = [
   { label: 'Início', href: '#hero' },
-  { label: 'Jornada', href: '#sobre' },
-  { label: 'Conquistas', href: '#conquistas' },
-  { label: 'Skills', href: '#skills' },
   { label: 'Projetos', href: '#projetos' },
+  { label: 'Jornada', href: '#sobre' },
+  { label: 'Skills', href: '#skills' },
   { label: 'Experiência', href: '#experiencia' },
+  { label: 'Conquistas', href: '#conquistas' },
   { label: 'Contato', href: '#contato' },
 ]
 

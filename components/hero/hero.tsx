@@ -4,7 +4,7 @@ import Image from 'next/image'
 import dynamic from 'next/dynamic'
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ArrowDown, ArrowUpRight } from 'lucide-react'
+import { ArrowDown, ArrowUpRight, Download } from 'lucide-react'
 
 const HeroScene = dynamic(
   () => import('./hero-scene').then((m) => m.HeroScene),
@@ -139,17 +139,19 @@ export function Hero() {
               />
             </a>
             <a
-              href="#contato"
+              href="/curriculo-paulo-vitor.pdf"
+              download
               className="flex items-center gap-2 rounded-full border border-primary/40 px-7 py-3.5 text-sm font-semibold text-foreground transition-all hover:bg-primary/10"
             >
-              Entrar em Contato
+              Baixar Currículo
+              <Download size={17} />
             </a>
           </motion.div>
         </div>
       </div>
 
       <motion.a
-        href="#sobre"
+        href="#projetos"
         aria-label="Rolar para baixo"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

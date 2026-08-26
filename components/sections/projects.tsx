@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import Image from 'next/image'
 import { AnimatePresence, motion } from 'framer-motion'
-import { ArrowLeft, ArrowRight, ArrowUpRight, MousePointer2 } from 'lucide-react'
+import { ArrowLeft, ArrowRight, ArrowUpRight } from 'lucide-react'
 import { GithubIcon } from '@/components/brand-icons'
 import { SectionHeading, Reveal } from '@/components/reveal'
 import { projects } from '@/lib/data'
@@ -19,12 +19,11 @@ const filters = [
 ]
 
 export function Projects() {
-  const [activeFilter, setActiveFilter] = useState<string | null>(null)
+  const [activeFilter, setActiveFilter] = useState('featured')
   const [activeIndex, setActiveIndex] = useState(0)
   const [direction, setDirection] = useState(1)
 
   const visibleProjects = useMemo(() => {
-    if (!activeFilter) return []
     if (activeFilter === 'all') return projects
     if (activeFilter === 'featured') return projects.filter((project) => project.featured)
     return projects.filter((project) => project.categories.includes(activeFilter))
@@ -63,7 +62,7 @@ export function Projects() {
         <SectionHeading
           eyebrow="Portfólio"
           title={<>Meus <span className="gradient-text">Projetos</span></>}
-          description="Selecione uma categoria e navegue pelos projetos em uma apresentação interativa."
+          description="Projetos em destaque que mostram, na prática, como transformo problemas em soluções digitais. Use os filtros para explorar outras categorias."
         />
 
         <Reveal>
@@ -89,23 +88,7 @@ export function Projects() {
         </Reveal>
 
         <AnimatePresence mode="wait">
-          {!activeFilter ? (
-            <motion.div
-              key="empty"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              className="mx-auto flex min-h-[280px] max-w-5xl flex-col items-center justify-center rounded-3xl border border-dashed border-primary/20 bg-card/30 px-6 text-center"
-            >
-              <span className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-accent">
-                <MousePointer2 size={24} />
-              </span>
-              <h3 className="font-heading text-xl font-semibold text-foreground">Escolha um filtro para começar</h3>
-              <p className="mt-3 max-w-sm text-sm leading-relaxed text-muted-foreground">
-                Depois de selecionar uma categoria, use as setas, as imagens ou os indicadores para navegar pelos projetos.
-              </p>
-            </motion.div>
-          ) : visibleProjects.length && activeProject ? (
+          {visibleProjects.length && activeProject ? (
             <motion.div
               key={activeFilter}
               initial={{ opacity: 0, y: 24 }}
@@ -208,9 +191,6 @@ export function Projects() {
                     <div className="mb-5 flex items-center gap-3">
                       <span className="flex h-10 w-10 items-center justify-center rounded-full border border-primary/30 bg-primary/10 font-mono text-sm font-semibold text-accent">
                         {String(activeIndex + 1).padStart(2, '0')}
-                      </span>
-                      <span className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">
-                        {String(visibleProjects.length).padStart(2, '0')} projetos na categoria
                       </span>
                     </div>
 
