@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation'
 import { ArrowLeft, ArrowRight, ArrowUpRight, CheckCircle2, Lightbulb, Target } from 'lucide-react'
 import { SiteNav } from '@/components/site-nav'
 import { SiteFooter } from '@/components/site-footer'
+import { CaseHeroSphere } from '@/components/case/case-hero-sphere'
 import { projects } from '@/lib/data'
 
 type CasePageProps = {
@@ -82,9 +83,15 @@ export default async function ProjectCasePage({ params }: CasePageProps) {
               </div>
             </div>
 
-            <div className="glass rounded-3xl p-6 sm:p-7">
-              <p className="font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground">Minha atuação</p>
-              <p className="mt-3 text-base leading-7 text-foreground">{caseStudy.role}</p>
+            <div className="relative min-h-[360px] overflow-hidden rounded-[2rem] border border-primary/10 bg-primary/[0.025] sm:min-h-[440px] lg:min-h-[540px]">
+              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(139,92,246,0.12),transparent_62%)]" />
+              <div className="absolute inset-0">
+                <CaseHeroSphere />
+              </div>
+              <div className="absolute inset-x-5 bottom-5 z-10 glass rounded-2xl p-5 backdrop-blur-md sm:inset-x-7 sm:bottom-7 sm:p-6">
+                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-accent">POR TRÁS DO PROJETO</p>
+                <p className="mt-2 text-sm leading-6 text-foreground/90 sm:text-base sm:leading-7">{caseStudy.role}</p>
+              </div>
             </div>
           </div>
 
