@@ -8,6 +8,11 @@ export type Project = {
   demo: string
   categories: string[]
   featured?: boolean
+  caseMedia?: {
+    src: string
+    alt: string
+    kind: 'image' | 'gif'
+  }[]
   caseStudy: {
     problem: string
     solution: string
@@ -139,6 +144,48 @@ export const projects: Project[] = [
       ],
       challenges: ['Reproduzir uma hierarquia visual complexa sem perder responsividade', 'Organizar estados e dados usados pela busca', 'Manter consistência entre diferentes áreas da interface'],
       outcome: 'O projeto consolidou práticas de React, Next.js e TypeScript em uma interface de maior densidade visual e interação do que uma landing page tradicional.',
+    },
+  },
+  {
+    id: 'album-nossa-historia',
+    title: 'Nosso Álbum — Nossa História de Amor',
+    description:
+      'Álbum digital interativo criado para transformar memórias de um casal em uma experiência visual inspirada em um álbum de figurinhas. O projeto combina navegação por páginas, animação de virada, trilha sonora e conteúdo personalizado, com front-end em HTML, CSS e JavaScript e apoio de uma API em FastAPI.',
+    technologies: ['HTML', 'CSS', 'JavaScript', 'Python', 'FastAPI', 'St.PageFlip'],
+    image: '/album-nossa-historia-capa.png',
+    github: 'https://github.com/Paulo-Vitor-dev/album-nossa-historia',
+    demo: 'https://paulo-vitor-dev.github.io/album-nossa-historia/',
+    categories: ['web', 'design', 'apis'],
+    featured: true,
+    caseMedia: [
+      {
+        src: '/album-nossa-historia-demo.gif',
+        alt: 'Demonstração animada da navegação e da virada de páginas do álbum digital',
+        kind: 'gif',
+      },
+      {
+        src: '/album-nossa-historia-pagina-1.png',
+        alt: 'Páginas internas do álbum com aventuras, viagens e momentos do casal',
+        kind: 'image',
+      },
+      {
+        src: '/album-nossa-historia-pagina-2.png',
+        alt: 'Páginas internas do álbum com cartões de memórias e momentos inesquecíveis',
+        kind: 'image',
+      },
+    ],
+    caseStudy: {
+      problem: 'Transformar uma coleção de lembranças em algo mais envolvente do que uma galeria estática exigia criar uma experiência com narrativa, personalidade e interação, sem perder a sensação afetiva de folhear um álbum físico.',
+      solution: 'Desenvolvi um álbum digital com páginas temáticas, navegação por setas e animação de virada de página. As memórias foram organizadas em uma experiência visual contínua, com imagens, textos personalizados e áudio, enquanto uma API em FastAPI dá suporte à estrutura do projeto.',
+      role: 'Concepção da experiência, desenvolvimento front-end, estruturação das páginas, integração da animação de page flip e implementação do backend em Python com FastAPI.',
+      highlights: ['Virada de páginas com efeito de álbum físico', 'Páginas temáticas com fotos e memórias personalizadas', 'Controles de navegação e áudio', 'Experiência responsiva em formato de álbum digital', 'Backend com FastAPI para suporte à aplicação'],
+      decisions: [
+        { title: 'St.PageFlip para a navegação', description: 'A biblioteca foi utilizada para reproduzir o movimento de uma página física e reforçar a proposta de álbum interativo.' },
+        { title: 'HTML, CSS e JavaScript no front-end', description: 'A combinação permite controle direto sobre layout, animações e comportamento visual sem adicionar complexidade desnecessária ao projeto.' },
+        { title: 'FastAPI no backend', description: 'O backend em Python foi adotado para organizar a camada de API de forma leve, rápida e documentável.' },
+      ],
+      challenges: ['Manter o efeito de virada natural em diferentes tamanhos de tela', 'Organizar conteúdo visual sem comprometer legibilidade e equilíbrio das páginas', 'Sincronizar navegação, animação e elementos de áudio em uma experiência fluida'],
+      outcome: 'O projeto demonstra como desenvolvimento web e narrativa visual podem ser combinados para transformar conteúdo pessoal em uma experiência digital interativa, reforçando domínio de front-end, animações, responsividade e integração com backend.',
     },
   },
   {
