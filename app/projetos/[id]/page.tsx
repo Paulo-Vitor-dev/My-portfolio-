@@ -6,6 +6,7 @@ import { ArrowLeft, ArrowRight, ArrowUpRight, CheckCircle2, Lightbulb, Target } 
 import { SiteNav } from '@/components/site-nav'
 import { SiteFooter } from '@/components/site-footer'
 import { CaseHeroSphere } from '@/components/case/case-hero-sphere'
+import { ProjectGallery } from '@/components/case/project-gallery'
 import { projects } from '@/lib/data'
 
 type CasePageProps = {
@@ -95,47 +96,12 @@ export default async function ProjectCasePage({ params }: CasePageProps) {
             </div>
           </div>
 
-          <div className="relative mt-14 aspect-[16/9] overflow-hidden rounded-3xl border border-primary/20 bg-card shadow-2xl shadow-primary/10 sm:mt-20">
-            <Image src={project.image} alt={`Tela principal do projeto ${project.title}`} fill priority sizes="(max-width: 1280px) 100vw, 1200px" className="object-cover" />
+          <div className="relative mx-auto mt-14 aspect-[16/9] w-full max-w-4xl overflow-hidden rounded-3xl border border-primary/20 bg-card shadow-2xl shadow-primary/10 sm:mt-20">
+            <Image src={project.image} alt={`Tela principal do projeto ${project.title}`} fill priority sizes="(max-width: 1024px) 100vw, 896px" className="object-contain" />
             <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/5" />
           </div>
 
-
-          {project.caseMedia?.length ? (
-            <div className="mt-16 sm:mt-20">
-              <div className="mb-8 max-w-2xl">
-                <p className="font-mono text-xs uppercase tracking-[0.2em] text-accent">Demonstração visual</p>
-                <h2 className="mt-3 font-heading text-3xl font-semibold sm:text-4xl">O projeto em funcionamento</h2>
-                <p className="mt-4 text-sm leading-7 text-muted-foreground sm:text-base">
-                  Navegue pelas principais telas e veja a experiência, as páginas e as interações do projeto.
-                </p>
-              </div>
-
-              <div className="grid gap-5 md:grid-cols-2">
-                {project.caseMedia.map((media, index) => (
-                  <figure
-                    key={media.src}
-                    className={`group relative overflow-hidden rounded-3xl border border-border bg-card/45 shadow-xl shadow-primary/5 ${index === 0 ? 'md:col-span-2' : ''}`}
-                  >
-                    <div className={`relative w-full ${index === 0 ? 'aspect-[16/8.5]' : 'aspect-[16/10]'}`}>
-                      <Image
-                        src={media.src}
-                        alt={media.alt}
-                        fill
-                        unoptimized={media.kind === 'gif'}
-                        sizes={index === 0 ? '(max-width: 1280px) 100vw, 1200px' : '(max-width: 768px) 100vw, 50vw'}
-                        className="object-cover transition-transform duration-500 group-hover:scale-[1.015]"
-                      />
-                      <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/5" />
-                    </div>
-                    <figcaption className="border-t border-border/70 px-5 py-4 text-sm text-muted-foreground">
-                      {media.alt}
-                    </figcaption>
-                  </figure>
-                ))}
-              </div>
-            </div>
-          ) : null}
+          <ProjectGallery media={project.caseMedia ?? []} />
         </section>
 
         <section className="border-y border-border/70 bg-card/20 py-20 sm:py-28">

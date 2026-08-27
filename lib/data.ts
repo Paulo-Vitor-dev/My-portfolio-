@@ -57,6 +57,7 @@ export const projects: Project[] = [
     demo: '#',
     categories: ['automation', 'apis'],
     featured: true,
+    caseMedia: [],
     caseStudy: {
       problem: 'Atendimentos com demandas diferentes podem exigir triagem manual e troca constante entre ferramentas, aumentando o tempo para identificar qual fluxo deve tratar cada solicitação.',
       solution: 'Criei uma arquitetura multiagente em que um agente supervisor interpreta mensagens de texto ou áudio recebidas pelo Telegram, preserva o contexto e direciona a solicitação para agentes especializados, com integrações de calendário e dados externos.',
@@ -82,6 +83,7 @@ export const projects: Project[] = [
     demo: '#',
     categories: ['automation', 'apis'],
     featured: true,
+    caseMedia: [],
     caseStudy: {
       problem: 'Solicitações de reembolso exigem conferência de dados, aplicação de regras e comunicação com o usuário, tarefas que podem se tornar repetitivas quando feitas manualmente.',
       solution: 'Desenvolvi um fluxo automatizado que recebe solicitações, consulta dados, interpreta o contexto com IA, aplica regras de negócio e devolve a resposta pelo canal adequado.',
@@ -107,6 +109,7 @@ export const projects: Project[] = [
     demo: '#',
     categories: ['automation', 'apis'],
     featured: true,
+    caseMedia: [],
     caseStudy: {
       problem: 'Atendimentos comerciais por e-mail acumulam perguntas semelhantes e exigem tempo para ler histórico, entender a intenção e redigir respostas consistentes.',
       solution: 'Criei um agente que monitora novas mensagens, identifica o contexto da conversa e gera respostas personalizadas com IA, mantendo o histórico necessário para dar continuidade ao atendimento.',
@@ -132,6 +135,7 @@ export const projects: Project[] = [
     demo: 'https://copia-spotify-hazel.vercel.app/',
     categories: ['web', 'design'],
     featured: true,
+    caseMedia: [],
     caseStudy: {
       problem: 'Construir interfaces semelhantes a produtos de streaming exige lidar com navegação rica, hierarquia visual, estados de busca e componentes reutilizáveis em diferentes tamanhos de tela.',
       solution: 'Recriei uma experiência inspirada no Spotify para praticar arquitetura de front-end moderna, organizando componentes, navegação e busca dinâmica com React, Next.js e TypeScript.',
@@ -154,7 +158,7 @@ export const projects: Project[] = [
     technologies: ['HTML', 'CSS', 'JavaScript', 'Python', 'FastAPI', 'St.PageFlip'],
     image: '/album-nossa-historia-capa.png',
     github: 'https://github.com/Paulo-Vitor-dev/album-nossa-historia',
-    demo: 'https://paulo-vitor-dev.github.io/album-nossa-historia/',
+    demo: '#',
     categories: ['web', 'design', 'apis'],
     featured: true,
     caseMedia: [
@@ -198,6 +202,7 @@ export const projects: Project[] = [
     github: 'https://github.com/Paulo-Vitor-dev/ecommerce-project',
     demo: '#',
     categories: ['web'],
+    caseMedia: [],
     caseStudy: {
       problem: 'Catálogos de tecnologia podem ficar difíceis de explorar quando muitos produtos disputam atenção e o usuário não encontra rapidamente o que procura.',
       solution: 'Desenvolvi um e-commerce responsivo com busca e filtros para facilitar a descoberta de produtos e organizar a navegação em diferentes tamanhos de tela.',
@@ -222,6 +227,7 @@ export const projects: Project[] = [
     demo: '#',
     categories: ['apis', 'web'],
     featured: true,
+    caseMedia: [],
     caseStudy: {
       problem: 'Entender Full Stack na prática exige conectar interface, API e persistência de dados em um fluxo completo, não apenas estudar cada camada isoladamente.',
       solution: 'Construí uma aplicação de cadastro de usuários em que React consome uma API REST criada com Node.js e Express, responsável por persistir os dados no MongoDB.',
@@ -246,6 +252,7 @@ export const projects: Project[] = [
     github: 'https://github.com/Paulo-Vitor-dev/petshop-project',
     demo: '#',
     categories: ['apis', 'web'],
+    caseMedia: [],
     caseStudy: {
       problem: 'Um pet shop precisa relacionar clientes, animais, serviços e agendamentos; controles dispersos dificultam consulta, manutenção e evolução dessas informações.',
       solution: 'Estou desenvolvendo um sistema de gestão com API REST e MySQL para centralizar os dados do negócio e estruturar relacionamentos entre as principais entidades.',
@@ -271,6 +278,7 @@ export const projects: Project[] = [
     demo: 'https://landing-page-hand.vercel.app/',
     categories: ['web', 'design'],
     featured: true,
+    caseMedia: [],
     caseStudy: {
       problem: 'Uma plataforma de serviços domésticos precisa explicar rapidamente sua proposta de valor e conduzir o visitante para uma ação sem criar atrito na navegação.',
       solution: 'Criei uma landing page responsiva focada em apresentar benefícios, organizar a informação e destacar chamadas para ação, combinando performance e experiência visual.',
