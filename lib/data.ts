@@ -308,7 +308,7 @@ export const experiences: Experience[] = [
     role: 'Desenvolvedor Full Stack',
     period: '2024 - Atual',
     description:
-      'Criação de landing pages, e-commerces, sistemas web e aplicações Full Stack com React, Next.js, Node.js, Express, MongoDB e MySQL. Desenvolvimento de soluções com foco em responsividade, performance, integração de APIs REST e deploy de aplicações web.',
+      'Criação de landing pages, e-commerces, sistemas web e aplicações Full Stack com React, Next.js, Node.js, Express, MongoDB e MySQL. Além do desenvolvimento de ponta a ponta, venho aprofundando práticas ligadas a Engenharia de Dados, especialmente modelagem, SQL, integração via APIs e organização de fluxos entre aplicações e bancos de dados.',
   },
   {
     company: 'Automação e Inteligência Artificial',
@@ -358,12 +358,12 @@ export const timeline: TimelineStep[] = [
   },
   {
     year: 'Hoje',
-    title: 'IA e Automação',
+    title: 'Full Stack, Dados e Automação',
     description:
-      'Desenvolvimento de fluxos automatizados com n8n, integração entre sistemas e criação de agentes inteligentes para otimização de processos.',
+      'Evolução dos estudos em Engenharia de Dados sem abandonar o desenvolvimento Full Stack, conectando Python, SQL, bancos de dados, APIs e automação.',
     details:
-      'Hoje venho combinando desenvolvimento web com n8n, APIs e modelos de IA para automatizar tarefas e integrar ferramentas em fluxos de trabalho.',
-    technologies: ['n8n', 'Python', 'APIs', 'IA', 'Automação'],
+      'Hoje venho aprofundando conceitos de Engenharia de Dados como modelagem, transformação, integração e construção de pipelines, aproveitando a base adquirida em APIs REST, MySQL, PostgreSQL, MongoDB, Python e automações com n8n.',
+    technologies: ['Python', 'SQL', 'MySQL', 'PostgreSQL', 'APIs', 'n8n'],
   },
 ]
 
@@ -378,6 +378,8 @@ export const skills: Skill[] = [
   { name: 'Java', orbit: 2, color: '#f89820' },
   { name: 'Spring Boot', orbit: 2, color: '#6db33f' },
   { name: 'Python', orbit: 2, color: '#ffd43b' },
+  { name: 'SQL', orbit: 2, color: '#4db6ac' },
+  { name: 'ETL / Pipelines', orbit: 2, color: '#9c7cff' },
   { name: 'MySQL', orbit: 3, color: '#00758f' },
   { name: 'MongoDB', orbit: 3, color: '#47a248' },
   { name: 'PostgreSQL', orbit: 3, color: '#336791' },

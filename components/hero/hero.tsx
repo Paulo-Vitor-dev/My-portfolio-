@@ -13,6 +13,7 @@ const HeroScene = dynamic(
 
 const ROLES = [
   'Full Stack Developer',
+  'Engenharia de Dados',
   'React & Next.js Developer',
   'Java & Spring Boot',
   'IA & Automação com n8n',
@@ -117,9 +118,10 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.75 }}
             className="mt-6 max-w-2xl text-pretty leading-relaxed text-muted-foreground"
           >
-            Desenvolvedor Full Stack em formação, com experiência prática em
-            desenvolvimento web, criação de interfaces responsivas, integração de
-            APIs REST e automação de processos com Inteligência Artificial.
+            Desenvolvedor Full Stack em formação, ampliando minha atuação para Engenharia de Dados.
+            Tenho experiência prática com aplicações web, APIs REST e bancos de dados e venho
+            aprofundando conhecimentos em Python, SQL, modelagem, integração e pipelines de dados,
+            sem deixar de lado o desenvolvimento de soluções completas de ponta a ponta.
           </motion.p>
 
           <motion.div

@@ -1,6 +1,6 @@
 # Portfólio — Paulo Vitor Brandão
 
-Portfólio pessoal desenvolvido com Next.js, React e TypeScript para reunir meus projetos, experiência, certificações e formas de contato. A interface usa um tema espacial com cenas em Three.js/React Three Fiber e animações de interface com Motion.
+Portfólio pessoal desenvolvido com Next.js, React e TypeScript para reunir meus projetos, experiência, certificações e formas de contato. O conteúdo apresenta minha trajetória em Desenvolvimento Full Stack e meu avanço em Engenharia de Dados, com foco em Python, SQL, bancos de dados, APIs, integração e automação de dados. A interface usa um tema espacial com cenas em Three.js/React Three Fiber e animações de interface com Motion.
 
 ## Tecnologias
 

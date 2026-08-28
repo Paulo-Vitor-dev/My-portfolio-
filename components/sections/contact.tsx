@@ -52,7 +52,7 @@ export function Contact() {
           </Reveal>
           <Reveal delay={0.2}>
             <p className="mt-5 max-w-xl text-pretty leading-relaxed text-muted-foreground lg:mx-0">
-              Estou aberto para oportunidades de estágio, posições júnior, freelances e projetos envolvendo desenvolvimento Full Stack, automação e Inteligência Artificial.
+              Estou aberto para oportunidades de estágio, posições júnior, freelances e projetos em Desenvolvimento Full Stack e Engenharia de Dados, além de soluções envolvendo APIs, automação e Inteligência Artificial.
             </p>
           </Reveal>
 

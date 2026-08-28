@@ -21,13 +21,19 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://paulovitorbrandao.dev'),
-  title: 'Paulo Vitor Brandão — Full Stack Developer',
+  title: 'Paulo Vitor Brandão — Full Stack & Engenharia de Dados',
   description:
-    'Portfólio de Paulo Vitor Brandão, desenvolvedor Full Stack com foco em React, Next.js, Java, Spring Boot, APIs REST, IA e automação.',
+    'Portfólio de Paulo Vitor Brandão, desenvolvedor Full Stack com interesse em Engenharia de Dados, Python, SQL, bancos de dados, APIs REST, IA e automação.',
   keywords: [
     'Paulo Vitor Brandão',
     'Full Stack Developer',
     'Desenvolvedor Full Stack',
+    'Engenharia de Dados',
+    'Data Engineering',
+    'Python',
+    'SQL',
+    'ETL',
+    'Pipelines de Dados',
     'Front-End',
     'Next.js',
     'React',
@@ -48,15 +54,15 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'pt_BR',
-    title: 'Paulo Vitor Brandão — Full Stack Developer',
+    title: 'Paulo Vitor Brandão — Full Stack & Engenharia de Dados',
     description:
-      'Desenvolvedor Full Stack com foco em React, Next.js, Java, Spring Boot, APIs REST, IA e automação.',
+      'Desenvolvedor Full Stack com interesse em Engenharia de Dados, Python, SQL, bancos de dados, APIs REST, IA e automação.',
     siteName: 'Paulo Vitor Brandão',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Paulo Vitor Brandão — Full Stack Developer',
-    description: 'Portfólio de desenvolvimento web, Full Stack, IA e automação.',
+    title: 'Paulo Vitor Brandão — Full Stack & Engenharia de Dados',
+    description: 'Portfólio de desenvolvimento Full Stack, Engenharia de Dados, IA e automação.',
   },
 }
 

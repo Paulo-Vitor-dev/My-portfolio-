@@ -139,7 +139,7 @@ export function About() {
         <SectionHeading
           eyebrow="A Jornada"
           title={<>Cada linha de código conta <span className="gradient-text">uma história</span></>}
-          description="Sou estudante de Análise e Desenvolvimento de Sistemas. Aqui reúno a evolução dos meus estudos, projetos Full Stack, experiência com interfaces web e trabalhos de automação com n8n e IA."
+          description="Sou estudante de Análise e Desenvolvimento de Sistemas. Minha trajetória combina desenvolvimento Full Stack com um interesse crescente em Engenharia de Dados, explorando bancos relacionais e NoSQL, APIs, Python, SQL, modelagem, integração e automação de fluxos de dados."
         />
 
         <div className="mb-12 flex justify-center">

@@ -20,7 +20,7 @@ export function Skills() {
               Uma <span className="gradient-text">galáxia</span> de tecnologias
             </>
           }
-          description="Tecnologias que aparecem nos meus projetos de front-end, back-end, bancos de dados, automação e integração de APIs."
+          description="Tecnologias que utilizo em desenvolvimento Full Stack e que também sustentam meu avanço em Engenharia de Dados: Python, SQL, bancos relacionais e NoSQL, APIs, automação, integração e processamento de dados."
         />
       </div>
 
