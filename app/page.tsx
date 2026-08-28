@@ -18,8 +18,8 @@ export default function Page() {
       <SiteNav />
       <main className="relative">
         <Hero />
-        <Projects />
         <TechMarquee />
+        <Projects />
         <About />
         <Skills />
         <Experience />
