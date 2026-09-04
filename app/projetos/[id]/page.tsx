@@ -101,7 +101,7 @@ export default async function ProjectCasePage({ params }: CasePageProps) {
             <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/5" />
           </div>
 
-          <ProjectGallery media={project.caseMedia ?? []} />
+          <ProjectGallery media={project.caseMedia ?? []} projectTitle={project.title} />
         </section>
 
         <section className="border-y border-border/70 bg-card/20 py-20 sm:py-28">

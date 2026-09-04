@@ -20,7 +20,7 @@ const filters = [
 ]
 
 export function Projects() {
-  const [activeFilter, setActiveFilter] = useState('all')
+  const [activeFilter, setActiveFilter] = useState('featured')
   const [activeIndex, setActiveIndex] = useState(0)
   const [direction, setDirection] = useState(1)
 
@@ -63,7 +63,7 @@ export function Projects() {
         <SectionHeading
           eyebrow="Portfólio"
           title={<>Meus <span className="gradient-text">Projetos</span></>}
-          description="Projetos que mostram, na prática, como transformo problemas em soluções digitais. Use os filtros para explorar outras categorias."
+          description="Projetos em destaque que mostram, na prática, como transformo problemas em soluções digitais. Use os filtros para explorar outras categorias."
         />
 
         <Reveal>

@@ -1,58 +1,36 @@
 import type { Project } from '@/lib/data'
+import { InteractiveFolderGallery } from '@/components/ui/interactive-folder-gallery'
 
 type ProjectGalleryProps = {
   media: NonNullable<Project['caseMedia']>
+  projectTitle: string
 }
 
-export function ProjectGallery({ media }: ProjectGalleryProps) {
+export function ProjectGallery({ media, projectTitle }: ProjectGalleryProps) {
   if (!media.length) return null
+
+  const galleryMedia = media.map((item, index) => ({
+    id: `${item.src}-${index}`,
+    src: item.src,
+    alt: item.alt,
+    kind: item.kind,
+  }))
 
   return (
     <div className="mt-16 sm:mt-20">
-      <div className="mb-8 max-w-2xl">
+      <div className="mb-2 max-w-2xl">
         <p className="font-mono text-xs uppercase tracking-[0.2em] text-accent">Demonstração visual</p>
-        <h2 className="mt-3 font-heading text-3xl font-semibold sm:text-4xl">Galeria do projeto</h2>
+        <h2 className="mt-3 font-heading text-3xl font-semibold sm:text-4xl">Galeria interativa</h2>
         <p className="mt-4 text-sm leading-7 text-muted-foreground sm:text-base">
-          Uma seleção de telas e demonstrações do projeto, organizada em uma grade compacta para preservar a qualidade das imagens.
+          Abra a pasta para explorar as telas e demonstrações do case. As mídias podem ser arrastadas e organizadas de forma interativa.
         </p>
       </div>
 
-      <div className="mx-auto grid max-w-5xl grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3">
-        {media.map((item) => (
-          <figure
-            key={item.src}
-            className="group overflow-hidden rounded-2xl border border-border bg-card/45 shadow-lg shadow-primary/5"
-          >
-            <div className="relative aspect-square overflow-hidden bg-background/50 p-2 sm:p-3">
-              {item.kind === 'video' ? (
-                <video
-                  src={item.src}
-                  aria-label={item.alt}
-                  controls
-                  muted
-                  loop
-                  playsInline
-                  preload="metadata"
-                  className="h-full w-full rounded-xl object-contain"
-                />
-              ) : (
-                // Native img preserves animated GIFs and keeps image handling consistent.
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
-                  src={item.src}
-                  alt={item.alt}
-                  loading="lazy"
-                  className="h-full w-full rounded-xl object-contain transition-transform duration-500 group-hover:scale-[1.02]"
-                />
-              )}
-              <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/5" />
-            </div>
-            <figcaption className="border-t border-border/70 px-4 py-3 text-xs leading-5 text-muted-foreground sm:text-sm">
-              {item.alt}
-            </figcaption>
-          </figure>
-        ))}
-      </div>
+      <InteractiveFolderGallery
+        media={galleryMedia}
+        folderName={`${projectTitle}.gallery`}
+        dragHintText="Arraste uma mídia para baixo para fechar"
+      />
     </div>
   )
 }
