@@ -24,18 +24,19 @@ export function ProjectGallery({ media }: ProjectGalleryProps) {
             className="group overflow-hidden rounded-2xl border border-border bg-card/45 shadow-lg shadow-primary/5"
           >
             <div className="relative aspect-square overflow-hidden bg-background/50 p-2 sm:p-3">
-              {item.kind === 'gif' ? (
-                // GIFs use the native img element so the browser receives the original animated file
-                // without passing through Next/Image optimization.
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
+              {item.kind === 'video' ? (
+                <video
                   src={item.src}
-                  alt={item.alt}
-                  loading="lazy"
-                  className="h-full w-full rounded-xl object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+                  aria-label={item.alt}
+                  controls
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                  className="h-full w-full rounded-xl object-contain"
                 />
               ) : (
-                // Native img also keeps the gallery implementation identical for future media additions.
+                // Native img preserves animated GIFs and keeps image handling consistent.
                 // eslint-disable-next-line @next/next/no-img-element
                 <img
                   src={item.src}

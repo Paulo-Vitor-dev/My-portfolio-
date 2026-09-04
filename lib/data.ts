@@ -11,7 +11,7 @@ export type Project = {
   caseMedia?: {
     src: string
     alt: string
-    kind: 'image' | 'gif'
+    kind: 'image' | 'gif' | 'video'
   }[]
   caseStudy: {
     problem: string
@@ -46,6 +46,64 @@ export type Skill = {
 }
 
 export const projects: Project[] = [
+  {
+    id: 'sua-representante',
+    title: 'Sua Representante — Gestão de Vendas',
+    description:
+      'Landing page desenvolvida para apresentar uma plataforma voltada a representantes comerciais. A experiência comunica de forma clara como a solução centraliza pedidos, clientes e comissões, usando hierarquia visual, benefícios objetivos e chamadas para ação orientadas à conversão.',
+    technologies: ['HTML', 'CSS', 'JavaScript', 'UI/UX', 'GitHub Pages'],
+    image: '/sua-representante-capa.png',
+    github: 'https://github.com/Paulo-Vitor-dev/LandingPage-SuaRepresentante',
+    demo: 'https://paulo-vitor-dev.github.io/LandingPage-SuaRepresentante/',
+    categories: ['web', 'design'],
+    featured: true,
+    caseMedia: [
+      { src: '/sua-representante-galeria-1.png', alt: 'Seção de benefícios da plataforma Sua Representante', kind: 'image' },
+      { src: '/sua-representante-galeria-2.png', alt: 'Apresentação da tecnologia e interface do painel de gestão', kind: 'image' },
+      { src: '/sua-representante-galeria-3.png', alt: 'Comparativo entre dificuldades da rotina manual e a solução digital proposta', kind: 'image' },
+    ],
+    caseStudy: {
+      problem: 'Representantes que trabalham com diferentes marcas podem acabar distribuindo pedidos, histórico de clientes e cálculos de comissão entre aplicativos, anotações e controles separados, dificultando a visão da operação.',
+      solution: 'Desenvolvi uma landing page para comunicar uma proposta de plataforma que reúne a rotina comercial em um único ambiente, apresentando benefícios, diferenciais e recursos com uma narrativa visual simples e orientada à conversão.',
+      role: 'Desenvolvimento front-end, estruturação da experiência, responsividade e implementação da identidade visual da landing page.',
+      highlights: ['Hero com proposta de valor e CTAs', 'Seções orientadas a benefícios e dores do público', 'Apresentação visual do dashboard do produto', 'Layout responsivo e identidade consistente', 'Publicação do projeto no GitHub Pages'],
+      decisions: [
+        { title: 'Narrativa baseada em problema e solução', description: 'As seções contrastam dificuldades da rotina manual com os ganhos de centralização para tornar a proposta do produto mais fácil de compreender.' },
+        { title: 'Hierarquia visual orientada à conversão', description: 'Títulos, textos curtos e CTAs foram distribuídos para conduzir a leitura e destacar os principais benefícios da plataforma.' },
+        { title: 'Identidade visual consistente', description: 'A paleta em tons de roxo e os elementos gráficos criam unidade entre hero, benefícios, diferenciais e apresentação do produto.' },
+      ],
+      challenges: ['Comunicar diferentes funcionalidades sem sobrecarregar a página', 'Manter clareza e hierarquia em seções com bastante conteúdo', 'Adaptar a composição visual para diferentes tamanhos de tela'],
+      outcome: 'O projeto demonstra aplicação de front-end e UI/UX em uma landing page de produto, combinando comunicação de valor, responsividade e decisões visuais voltadas à apresentação comercial de uma solução digital.',
+    },
+  },
+  {
+    id: 'spiderman-brand-new-day',
+    title: 'Spider-Man: Brand New Day',
+    description:
+      'Experiência web inspirada em Spider-Man: Brand New Day, criada com foco em direção visual, composição de interface e impacto cinematográfico. O projeto transforma a temática do filme em uma landing page promocional com identidade marcante, hierarquia de conteúdo e interações voltadas à imersão.',
+    technologies: ['HTML', 'CSS', 'JavaScript', 'UI/UX', 'Animações'],
+    image: '/spiderman-brand-new-day-capa.png',
+    github: 'https://github.com/Paulo-Vitor-dev/SpiderMan-BrandNewDay',
+    demo: '#',
+    categories: ['web', 'design'],
+    featured: true,
+    caseMedia: [
+      { src: '/spiderman-brand-new-day-demo.mp4', alt: 'Demonstração em vídeo da experiência e das interações do projeto', kind: 'video' },
+    ],
+    caseStudy: {
+      problem: 'Uma página promocional de entretenimento precisa transmitir identidade e atmosfera rapidamente, sem perder legibilidade, navegação ou clareza das principais ações.',
+      solution: 'Criei uma experiência front-end inspirada na comunicação visual de lançamentos cinematográficos, combinando composição editorial, elementos temáticos, tipografia, imagens e interações para construir uma apresentação imersiva.',
+      role: 'Desenvolvimento front-end, composição visual, implementação da interface, responsividade e construção das interações.',
+      highlights: ['Hero cinematográfico com forte direção visual', 'Composição editorial integrada à imagem principal', 'Elementos gráficos inspirados no universo do personagem', 'CTAs para trailer e ingressos', 'Interações e animações para reforçar a experiência'],
+      decisions: [
+        { title: 'Composição cinematográfica', description: 'A interface prioriza uma imagem central de grande impacto e distribui informações nas laterais para manter o personagem como foco da experiência.' },
+        { title: 'Identidade temática', description: 'Vermelho, branco, tipografia e elementos gráficos foram combinados para remeter ao universo visual do Homem-Aranha sem transformar a tela em uma simples reprodução de pôster.' },
+        { title: 'Informação como parte do layout', description: 'Data de lançamento, sinopse, navegação e CTAs foram tratados como elementos da composição visual, mantendo função e estética integradas.' },
+      ],
+      challenges: ['Equilibrar uma imagem de grande destaque com textos e controles de navegação', 'Preservar a identidade visual em diferentes proporções de tela', 'Adicionar movimento sem competir com o conteúdo principal'],
+      outcome: 'O projeto reforça habilidades de front-end e UI/UX aplicadas a uma experiência promocional de alto impacto visual, demonstrando atenção a composição, identidade, responsividade e interação.',
+    },
+  },
   {
     id: 'sistema-multiagentes-ia',
     title: 'Sistema Multiagentes com IA',
